@@ -22,14 +22,55 @@ questions = [
     }
 ]
 
+#def question_one(questions):
+    #for question in questions:
+        #for key, value in question.items():
+            #print(key, ":", value)
+        #print("")
+
+    #question = [question["prompt"] for question in questions]
+    #print(question)
+
+    #course = [dictionary["course"] for dictionary in list_of_dict]
+    #price = [dictionary["price"] for dictionary in list_of_dict]
+
+    
 def run_quiz(questions):
     score = 0
-    x = questions[0]['prompt']
-    print(x)
     for question in questions:
-        print(question.keys())
-        print(question.values())
-        print(question.items())
+        print(question["prompt"])
+        for options in question["options"]:
+            print(options)
+        answer = input("Enter your answer (A, B, C, or D): ")
+        if answer.upper() == question["answer"]:
+            print("Correct. Hooray!!")
+            score += 1
+            print(f"Score: {score}\n")
+        else:
+            print("Wrong. LOSER! The correct answer was", question["answer"])
+            print(f"Score: {score}\n")
+
+    #x = questions[0]['prompt']
+    #print(x)
+    #for question in questions:
+        #print(question.keys())
+        #print(question.values())
+        #print(question.items())
+
+#prints first questions
+
+#prints first questions options
+
+#input for first question
+
+#validates input
+
+#compares input to answer
+    #if correct shows second questions
+    #if wrong display correct answer, goes to next questions
+    #updates score if correct
+
+#at end of game - show win message depending on score
 
 
 
