@@ -2,9 +2,17 @@ import random
 
 words = ['rabbit', 'squirrel', 'robin', 'cat', 'kangaroo', 'giraffe']
 
-display = ["_" for letter in words]
+game_word = random.choice(words)
 
-print(*display, sep = " #")
+display = ["_" for letter in game_word]
+
+print(game_word)
+print(display)
+print(*display, sep = " ")
+
+letters_guessed = []
+guess = input("Type in the letter you want to guess")
+letters_guessed.append(guess)
 
 
 
