@@ -49,6 +49,8 @@ def run_quiz(questions):
         else:
             print("Wrong. LOSER! The correct answer was", question["answer"])
             print(f"Score: {score}\n")
+    
+    print(f"Your final score is: {score} out of {len(questions)}")
 
     #x = questions[0]['prompt']
     #print(x)
