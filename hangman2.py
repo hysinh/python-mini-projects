@@ -9,13 +9,13 @@ attempts = 8
 
 def generate_random_word():
     active_word = random.choice(words) #randomly selected word from words list
-    word_letters = [letter for letter in active_word]     
+    letters = [letter for letter in active_word]
+    blanks = ["_" for letter in letters]    
     print(active_word)
-    return word_letters
+    return blanks
+    
+#def convert_to_dashes():
 
-
-
-#take active_word and convert to a list of letters
 
 #print each letter to "_" for each item in list word_letters
 
@@ -44,10 +44,10 @@ def generate_random_word():
     #input(play again?)
 
 def run_game():
-    generate_random_word()
-    print(word_letters)
+    word_letters = generate_random_word()
+    print(*word_letters, sep = " ")
     guess = input("Guess a letter: \n").lower()
 
 
-
+print("Welcome to Guess My Word. A singular game of chance.")
 run_game()
