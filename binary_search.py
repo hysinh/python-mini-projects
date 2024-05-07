@@ -5,10 +5,14 @@
 #naive search: scan the entire list and ask if it's equal to the target
 #if yes, return the index
 #if no, then return -1
+
+# CODE NOT WORKING 
+
+
 def naive_search(l, target):
     # example l = [1, 3, 10. 12]
     for i in range(len(l)):
-        if l(i) == target:
+        if l[i] == target:
             return i
     return -1
 
@@ -17,15 +21,15 @@ def naive_search(l, target):
 # we will leverage the fact that our list is SORTED
 def binary_search(l, target):
     # example = l [1, 3, 5, 10, 12]
-    midpoint = (len(l)) // 2 # 2
+    midpoint = len(l) // 2 # 2 //= floor division
 
     if l[midpoint] == target:
         return midpoint
     elif target < l[midpoint]:
-        return binary_search(l, target)
+        return binary_search(l[midpoint - 1], target)
     else: 
         # target > l[midpoint]
-        return binary_search(l, target)
+        return binary_search(l[midpoint + 1], target)
     
 
 # binary search with low and high arguments (limits)
@@ -52,8 +56,8 @@ def binary_search_low_high(l, target, low=None, high=None):
     
 
 if __name__=='__main__':
-    list = l [1, 3, 5, 10, 12]
+    l = [1, 3, 5, 10, 12]
     target = 10
-    print(naive_search(target, list))
-    print(binary_search(target, list))
+    print(naive_search(l, target))
+    print(binary_search(l, target))
     
