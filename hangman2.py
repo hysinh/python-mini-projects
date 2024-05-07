@@ -32,50 +32,63 @@ import random
 words = ['cat', 'pickle', 'sandwich', 'dolphin', 'popcorn', 'spaceship', 'grass']
 
 word_letters = [] #list of letters of the active_word
-blank_letters = []
+#blanks = [] # list of blank letters
 used_letters = [] #list of used letters
 correct_letters = []
-attempts = 2 
+
 
 def generate_random_word():
+    """
+    Selects a random word from the words list and appends it to list
+    """
     random_word = random.choice(words) #randomly selected word from words list
     word_letters.append([letter for letter in random_word])
     return random_word
 
 
 def makes_letter_list(word):
+    """
+    Creates a list of the letters of the active word
+    """
     letters = [letter for letter in word]
     return letters
     
     
 def makes_blanks(list):
+    """
+    Creates a list substituting "_" for each letter in the list
+    """
     blanks = ["_" for letter in list]    
     return blanks
 
 
 
 def test_letter(guess, word):
-    print(f"in test-letter function: {word}")
-    print(f"in test-letter function - guess: {guess}")
+    #print(f"in test-letter function: {word}")
+    word_letters = [letter for letter in word]
+    word_display = ["_" for letter in word_letters]
+    attempts = 2 
+    #print(word_display)
     #for i in word:
         #if guess == i:
             #print(f"this letter is in the word: {guess}")
         #else:
             #print(f"This letter is not in the word: {guess}")
-
-    if guess in word:
+    while attempts > 0 and "_" in word_display:
+        if guess in word:
             print("\n" + " ".join(word))
             print(f"in if statment: {guess}")
             for index, letter in enumerate(word):
-                print(letter)
+                #print(letter)
                 if guess == letter:
-                    print("your letter is in the word")
-                    word[index] = guess #reveal letter
-                    print(word)
-    else:
-        print("That letter doesn't appear in the word.")
-        print("========")
-        #attempts -= 1
+                    print("Yay! Your letter is in the word")
+                    letter = guess #reveal letter
+                    print(f"in the enumerate function: {letter}")
+        else:
+            print("That letter doesn't appear in the word.")
+            print("========")
+            attempts -= 1
+            print(attempts)
 
 
 
@@ -103,11 +116,11 @@ def test_letter(guess, word):
 def run_game():
     active_word = generate_random_word()
     print(f"active_word: {active_word}")
-    print(word_letters)
     letters = makes_letter_list(active_word)
-    #blanks = makes_blanks(letters)
+    blanks = makes_blanks(letters)
+    print("\n" + " ".join(blanks))
     guess = input("Guess a letter: \n").lower()
-    test_letter(guess, letters)
+    test_letter(guess, active_word)
 
 
 print("Welcome to Guess My Word. A singular game of chance.")
