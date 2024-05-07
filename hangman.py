@@ -3,7 +3,7 @@ import random
 words = ['rabbit', 'squirrel', 'robin', 'cat', 'kangaroo', 'giraffe']
 game_word = random.choice(words)
 # number of attempts allowed
-attempts = 8 
+attempts = 3 
 
 
 
@@ -26,10 +26,10 @@ def play_game(word):
     Runs the game
     """
     # number of attempts allowed
-    attempts = 8
+    attempts = 3
     word_display = ["_" for letter in word]
     #word_letters = [str(letter) for letter in word]
-    print(word)
+    print(word_display)
     #print(display)
     #print(word_letters)
     while attempts > 0 and "_" in word_display:
